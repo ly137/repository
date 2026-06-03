@@ -1,0 +1,566 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-06-01T23:30:07.289+08:00  INFO 2888 --- [           main] com.gamebox.GameBoxApplication           : Starting GameBoxApplication v1.0.0 using Java 17.0.11 with PID 2888 (D:\22523\demo\gamebox-server\target\gamebox-server-1.0.0.jar started by 22523 in D:\22523\demo\gamebox-server)
+2026-06-01T23:30:07.294+08:00 DEBUG 2888 --- [           main] com.gamebox.GameBoxApplication           : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-01T23:30:07.295+08:00  INFO 2888 --- [           main] com.gamebox.GameBoxApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-06-01T23:30:09.679+08:00  INFO 2888 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-06-01T23:30:09.694+08:00  INFO 2888 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-01T23:30:09.694+08:00  INFO 2888 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-06-01T23:30:09.757+08:00  INFO 2888 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-01T23:30:09.759+08:00  INFO 2888 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2319 ms
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+Get /10.16.52.20 network interface 
+Get network interface info: name:wlan2 (RZ616 Wi-Fi 6E 160MHz)
+Initialization Sequence datacenterId:5 workerId:27
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.9 
+2026-06-01T23:30:11.580+08:00  INFO 2888 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-06-01T23:30:12.407+08:00  INFO 2888 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-06-01T23:30:12.423+08:00  INFO 2888 --- [           main] com.gamebox.GameBoxApplication           : Started GameBoxApplication in 5.916 seconds (process running for 6.762)
+2026-06-01T23:30:24.333+08:00  INFO 2888 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-01T23:30:24.334+08:00  INFO 2888 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-01T23:30:24.335+08:00  INFO 2888 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8c19f1] was not registered for synchronization because synchronization is not active
+2026-06-01T23:30:25.160+08:00  INFO 2888 --- [nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-01T23:30:25.418+08:00  INFO 2888 --- [nio-8080-exec-4] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1988af4b
+2026-06-01T23:30:25.422+08:00  INFO 2888 --- [nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+JDBC Connection [HikariProxyConnection@2115735306 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_game WHERE status = 1 AND (is_recommend = ? AND status = ?)
+==> Parameters: 1(Integer), 1(Integer)
+<==    Columns: total
+<==        Row: 5
+<==      Total: 1
+==>  Preparing: SELECT id,name,cover,description,developer,publisher,release_date,platform,tags,rating,rating_count,is_recommend,status,created_at,updated_at FROM t_game WHERE status=1 AND (is_recommend = ? AND status = ?) ORDER BY rating DESC LIMIT ?
+==> Parameters: 1(Integer), 1(Integer), 6(Long)
+<==    Columns: id, name, cover, description, developer, publisher, release_date, platform, tags, rating, rating_count, is_recommend, status, created_at, updated_at
+<==        Row: 2, 塞尔达传说：王国之泪, https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg, <<BLOB>>, 任天堂, 任天堂, 2023-05-12, Switch, 开放世界,冒险,解谜, 9.80, 980, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 博德之门3, https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg, <<BLOB>>, Larian Studios, Larian Studios, 2023-08-03, PC,PS5, RPG,回合制,奇幻, 9.60, 850, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 艾尔登法环, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg, <<BLOB>>, FromSoftware, Bandai Namco, 2022-02-25, PC,PS5,Xbox, 魂系,开放世界,RPG, 9.50, 1200, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 星露谷物语, https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg, <<BLOB>>, ConcernedApe, ConcernedApe, 2016-02-27, PC,Switch,PS5,Xbox, 模拟经营,像素,休闲, 9.30, 760, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 黑神话：悟空, https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg, <<BLOB>>, 游戏科学, 游戏科学, 2024-08-20, PC,PS5, 动作,RPG,神话, 9.20, 2100, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d8c19f1]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@197c08e0] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@276351992 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM t_notification WHERE (user_id = ? AND is_read = ?)
+==> Parameters: 1(Long), 0(Integer)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@197c08e0]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6640f53] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@144957935 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM t_notification WHERE (user_id = ? AND is_read = ?)
+==> Parameters: 1(Long), 0(Integer)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6640f53]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdda885] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1360682254 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM t_notification WHERE (user_id = ? AND is_read = ?)
+==> Parameters: 1(Long), 0(Integer)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdda885]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71bcda3] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1108951844 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM t_notification WHERE (user_id = ? AND is_read = ?)
+==> Parameters: 1(Long), 0(Integer)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71bcda3]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62334013] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1104274003 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT( * ) AS total FROM t_notification WHERE (user_id = ? AND is_read = ?)
+==> Parameters: 1(Long), 0(Integer)
+<==    Columns: total
+<==        Row: 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62334013]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d0b278c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@645423852 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_game WHERE status = 1 AND (is_recommend = ? AND status = ?)
+==> Parameters: 1(Integer), 1(Integer)
+<==    Columns: total
+<==        Row: 5
+<==      Total: 1
+==>  Preparing: SELECT id,name,cover,description,developer,publisher,release_date,platform,tags,rating,rating_count,is_recommend,status,created_at,updated_at FROM t_game WHERE status=1 AND (is_recommend = ? AND status = ?) ORDER BY rating DESC LIMIT ?
+==> Parameters: 1(Integer), 1(Integer), 6(Long)
+<==    Columns: id, name, cover, description, developer, publisher, release_date, platform, tags, rating, rating_count, is_recommend, status, created_at, updated_at
+<==        Row: 2, 塞尔达传说：王国之泪, https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg, <<BLOB>>, 任天堂, 任天堂, 2023-05-12, Switch, 开放世界,冒险,解谜, 9.80, 980, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 博德之门3, https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg, <<BLOB>>, Larian Studios, Larian Studios, 2023-08-03, PC,PS5, RPG,回合制,奇幻, 9.60, 850, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 艾尔登法环, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg, <<BLOB>>, FromSoftware, Bandai Namco, 2022-02-25, PC,PS5,Xbox, 魂系,开放世界,RPG, 9.50, 1200, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 星露谷物语, https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg, <<BLOB>>, ConcernedApe, ConcernedApe, 2016-02-27, PC,Switch,PS5,Xbox, 模拟经营,像素,休闲, 9.30, 760, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 黑神话：悟空, https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg, <<BLOB>>, 游戏科学, 游戏科学, 2024-08-20, PC,PS5, 动作,RPG,神话, 9.20, 2100, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d0b278c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bce59c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1424853858 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_game WHERE status = 1 AND (is_recommend = ? AND status = ?)
+==> Parameters: 1(Integer), 1(Integer)
+<==    Columns: total
+<==        Row: 5
+<==      Total: 1
+==>  Preparing: SELECT id,name,cover,description,developer,publisher,release_date,platform,tags,rating,rating_count,is_recommend,status,created_at,updated_at FROM t_game WHERE status=1 AND (is_recommend = ? AND status = ?) ORDER BY rating DESC LIMIT ?
+==> Parameters: 1(Integer), 1(Integer), 6(Long)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57ad886e] was not registered for synchronization because synchronization is not active
+<==    Columns: id, name, cover, description, developer, publisher, release_date, platform, tags, rating, rating_count, is_recommend, status, created_at, updated_at
+<==        Row: 2, 塞尔达传说：王国之泪, https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg, <<BLOB>>, 任天堂, 任天堂, 2023-05-12, Switch, 开放世界,冒险,解谜, 9.80, 980, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 博德之门3, https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg, <<BLOB>>, Larian Studios, Larian Studios, 2023-08-03, PC,PS5, RPG,回合制,奇幻, 9.60, 850, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 艾尔登法环, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg, <<BLOB>>, FromSoftware, Bandai Namco, 2022-02-25, PC,PS5,Xbox, 魂系,开放世界,RPG, 9.50, 1200, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 星露谷物语, https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg, <<BLOB>>, ConcernedApe, ConcernedApe, 2016-02-27, PC,Switch,PS5,Xbox, 模拟经营,像素,休闲, 9.30, 760, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 黑神话：悟空, https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg, <<BLOB>>, 游戏科学, 游戏科学, 2024-08-20, PC,PS5, 动作,RPG,神话, 9.20, 2100, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bce59c]
+JDBC Connection [HikariProxyConnection@929487483 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_post WHERE status = 1 AND (status = ?)
+==> Parameters: 1(Integer)
+<==    Columns: total
+<==        Row: 9
+<==      Total: 1
+==>  Preparing: SELECT id,user_id,game_id,category_id,title,content,tags,cover_image,view_count,like_count,reply_count,share_count,heat_score,is_top,is_essence,status,created_at,updated_at FROM t_post WHERE status=1 AND (status = ?) ORDER BY heat_score DESC,created_at DESC LIMIT ?
+==> Parameters: 1(Integer), 10(Long)
+<==    Columns: id, user_id, game_id, category_id, title, content, tags, cover_image, view_count, like_count, reply_count, share_count, heat_score, is_top, is_essence, status, created_at, updated_at
+<==        Row: 6, 3, 4, 5, 黑神话DLC预测：下一站天庭？, <<BLOB>>, 黑神话,悟空,DLC,预测, null, 3209, 278, 99, 0, 120.5, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 2, 3, 4, 1, 黑神话：悟空 隐藏BOSS全部打法分享, <<BLOB>>, 黑神话,悟空,BOSS攻略, null, 1897, 203, 67, 0, 92.3, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 2, 1, 1, 艾尔登法环 DLC 黄金树幽影 全地图攻略, <<BLOB>>, 艾尔登法环,攻略,DLC, null, 2347, 157, 43, 0, 85.6, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 4, 3, 2, 博德之门3 最强Build推荐, <<BLOB>>, 博德之门3,Build,RPG, null, 1203, 89, 32, 0, 45.2, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 5, 2, 4, 王国之泪 200小时后的感动, <<BLOB>>, 塞尔达,王国之泪,感想, null, 890, 67, 18, 0, 28.7, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 7, 4, 1, 2, 讨论：FromSoftware下一作会是什么题材, <<BLOB>>, FromSoftware,魂系,新作, null, 670, 34, 15, 0, 18.9, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 2, 5, 1, 星露谷物语 新手入门指南, <<BLOB>>, 星露谷,新手,指南, null, 561, 45, 12, 0, 15.3, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 8, 5, 3, 3, 求助：博德之门3 影心个人任务卡住了, <<BLOB>>, 博德之门3,求助,Bug, null, 320, 12, 8, 0, 6.5, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 9, 1, null, null, 测试, <<BLOB>>, 星露谷物语, null, 1, 0, 0, 0, 0.0, 0, 0, 1, 2026-05-27 21:47:18, 2026-05-27 21:47:18
+<==      Total: 9
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57ad886e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68f5d5db] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1535256051 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 5, 新闻, news, 5, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68f5d5db]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a14c118] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@201952908 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 3, gamer_pro, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 高玩达人, null, 全平台制霸！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a14c118]
+Creating a new SqlSession
+2026-06-01T23:31:37.226+08:00 ERROR 2888 --- [nio-8080-exec-2] c.g.exception.GlobalExceptionHandler     : 系统异常
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.6.jar!/:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar!/:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25f3e771] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1969713598 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25f3e771]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@629ecbbe] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@334371063 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 3, gamer_pro, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 高玩达人, null, 全平台制霸！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@629ecbbe]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ab12b5c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1046926991 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ab12b5c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77f661b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@607602275 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 2, player1, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 玩家一号, null, 热爱游戏的普通玩家, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77f661b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71971bbb] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@885624899 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 2, 讨论, discuss, 2, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@71971bbb]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59d63607] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1746659612 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 4, game_girl, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 游戏少女, null, 只玩好游戏~, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59d63607]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d64c4ce] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@367702891 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 4, 分享, share, 4, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d64c4ce]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@103ff980] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1269173757 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 5, rpg_lover, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, RPG爱好者, null, RPG永不毕业！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@103ff980]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e123c4b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2112630593 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 2, 讨论, discuss, 2, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5e123c4b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@72f2fec4] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1482341660 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 4, game_girl, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 游戏少女, null, 只玩好游戏~, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@72f2fec4]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b8a5614] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@241930623 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b8a5614]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47fb8b67] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@2121813882 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 2, player1, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 玩家一号, null, 热爱游戏的普通玩家, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@47fb8b67]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c41002e] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@393876082 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 3, 求助, help, 3, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c41002e]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51b84f72] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1442608411 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 5, rpg_lover, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, RPG爱好者, null, RPG永不毕业！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51b84f72]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1573ec3a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@103014969 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 1, admin, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 管理员, null, GameBox 官方管理员, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1573ec3a]
+2026-06-01T23:31:47.950+08:00  INFO 2888 --- [nio-8080-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1392 ms
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29b1149b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1736460325 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_game WHERE status = 1 AND (is_recommend = ? AND status = ?)
+==> Parameters: 1(Integer), 1(Integer)
+<==    Columns: total
+<==        Row: 5
+<==      Total: 1
+==>  Preparing: SELECT id,name,cover,description,developer,publisher,release_date,platform,tags,rating,rating_count,is_recommend,status,created_at,updated_at FROM t_game WHERE status=1 AND (is_recommend = ? AND status = ?) ORDER BY rating DESC LIMIT ?
+==> Parameters: 1(Integer), 1(Integer), 6(Long)
+<==    Columns: id, name, cover, description, developer, publisher, release_date, platform, tags, rating, rating_count, is_recommend, status, created_at, updated_at
+<==        Row: 2, 塞尔达传说：王国之泪, https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg, <<BLOB>>, 任天堂, 任天堂, 2023-05-12, Switch, 开放世界,冒险,解谜, 9.80, 980, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 博德之门3, https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg, <<BLOB>>, Larian Studios, Larian Studios, 2023-08-03, PC,PS5, RPG,回合制,奇幻, 9.60, 850, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 艾尔登法环, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg, <<BLOB>>, FromSoftware, Bandai Namco, 2022-02-25, PC,PS5,Xbox, 魂系,开放世界,RPG, 9.50, 1200, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 星露谷物语, https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg, <<BLOB>>, ConcernedApe, ConcernedApe, 2016-02-27, PC,Switch,PS5,Xbox, 模拟经营,像素,休闲, 9.30, 760, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 黑神话：悟空, https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg, <<BLOB>>, 游戏科学, 游戏科学, 2024-08-20, PC,PS5, 动作,RPG,神话, 9.20, 2100, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29b1149b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b945573] was not registered for synchronization because synchronization is not active
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4aa3654c] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@638480775 wrapping com.mysql.cj.jdbc.ConnectionImpl@1988af4b] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_game WHERE status = 1 AND (is_recommend = ? AND status = ?)
+==> Parameters: 1(Integer), 1(Integer)
+JDBC Connection [HikariProxyConnection@1924819492 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT COUNT(*) AS total FROM t_post WHERE status = 1 AND (status = ?)
+==> Parameters: 1(Integer)
+<==    Columns: total
+<==        Row: 5
+<==      Total: 1
+<==    Columns: total
+<==        Row: 9
+<==      Total: 1
+==>  Preparing: SELECT id,name,cover,description,developer,publisher,release_date,platform,tags,rating,rating_count,is_recommend,status,created_at,updated_at FROM t_game WHERE status=1 AND (is_recommend = ? AND status = ?) ORDER BY rating DESC LIMIT ?
+==>  Preparing: SELECT id,user_id,game_id,category_id,title,content,tags,cover_image,view_count,like_count,reply_count,share_count,heat_score,is_top,is_essence,status,created_at,updated_at FROM t_post WHERE status=1 AND (status = ?) ORDER BY heat_score DESC,created_at DESC LIMIT ?
+==> Parameters: 1(Integer), 1(Integer), 6(Long)
+==> Parameters: 1(Integer), 10(Long)
+<==    Columns: id, name, cover, description, developer, publisher, release_date, platform, tags, rating, rating_count, is_recommend, status, created_at, updated_at
+<==    Columns: id, user_id, game_id, category_id, title, content, tags, cover_image, view_count, like_count, reply_count, share_count, heat_score, is_top, is_essence, status, created_at, updated_at
+<==        Row: 6, 3, 4, 5, 黑神话DLC预测：下一站天庭？, <<BLOB>>, 黑神话,悟空,DLC,预测, null, 3209, 278, 99, 0, 120.5, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 2, 塞尔达传说：王国之泪, https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg, <<BLOB>>, 任天堂, 任天堂, 2023-05-12, Switch, 开放世界,冒险,解谜, 9.80, 980, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 2, 3, 4, 1, 黑神话：悟空 隐藏BOSS全部打法分享, <<BLOB>>, 黑神话,悟空,BOSS攻略, null, 1897, 203, 67, 0, 92.3, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 博德之门3, https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg, <<BLOB>>, Larian Studios, Larian Studios, 2023-08-03, PC,PS5, RPG,回合制,奇幻, 9.60, 850, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 2, 1, 1, 艾尔登法环 DLC 黄金树幽影 全地图攻略, <<BLOB>>, 艾尔登法环,攻略,DLC, null, 2347, 157, 43, 0, 85.6, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 1, 艾尔登法环, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg, <<BLOB>>, FromSoftware, Bandai Namco, 2022-02-25, PC,PS5,Xbox, 魂系,开放世界,RPG, 9.50, 1200, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 3, 4, 3, 2, 博德之门3 最强Build推荐, <<BLOB>>, 博德之门3,Build,RPG, null, 1203, 89, 32, 0, 45.2, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 5, 星露谷物语, https://cdn.cloudflare.steamstatic.com/steam/apps/413150/library_600x900.jpg, <<BLOB>>, ConcernedApe, ConcernedApe, 2016-02-27, PC,Switch,PS5,Xbox, 模拟经营,像素,休闲, 9.30, 760, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 5, 2, 4, 王国之泪 200小时后的感动, <<BLOB>>, 塞尔达,王国之泪,感想, null, 890, 67, 18, 0, 28.7, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 4, 黑神话：悟空, https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg, <<BLOB>>, 游戏科学, 游戏科学, 2024-08-20, PC,PS5, 动作,RPG,神话, 9.20, 2100, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 7, 4, 1, 2, 讨论：FromSoftware下一作会是什么题材, <<BLOB>>, FromSoftware,魂系,新作, null, 670, 34, 15, 0, 18.9, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 5
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b945573]
+<==        Row: 5, 2, 5, 1, 星露谷物语 新手入门指南, <<BLOB>>, 星露谷,新手,指南, null, 561, 45, 12, 0, 15.3, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 8, 5, 3, 3, 求助：博德之门3 影心个人任务卡住了, <<BLOB>>, 博德之门3,求助,Bug, null, 320, 12, 8, 0, 6.5, 0, 0, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==        Row: 9, 1, null, null, 测试, <<BLOB>>, 星露谷物语, null, 1, 0, 0, 0, 0.0, 0, 0, 1, 2026-05-27 21:47:18, 2026-05-27 21:47:18
+<==      Total: 9
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4aa3654c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ae4da60] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@149612749 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 5, 新闻, news, 5, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ae4da60]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3fd7e3af] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1664883183 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 3, gamer_pro, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 高玩达人, null, 全平台制霸！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3fd7e3af]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c28e4da] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@484619883 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1c28e4da]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ad6245f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@25363947 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 3, gamer_pro, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 高玩达人, null, 全平台制霸！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ad6245f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67cfdd3] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1843643807 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67cfdd3]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@210af40b] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1090062236 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 2, player1, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 玩家一号, null, 热爱游戏的普通玩家, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@210af40b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@769af04d] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@4651065 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 2, 讨论, discuss, 2, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@769af04d]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14bb129f] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@889360605 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 4, game_girl, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 游戏少女, null, 只玩好游戏~, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14bb129f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54bd72e2] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@408861952 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 4, 分享, share, 4, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54bd72e2]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a51fd64] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@365211822 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 5, rpg_lover, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, RPG爱好者, null, RPG永不毕业！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a51fd64]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b127a24] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1041047295 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 2, 讨论, discuss, 2, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b127a24]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bab2ad5] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@65057502 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 4(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 4, game_girl, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 游戏少女, null, 只玩好游戏~, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bab2ad5]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f98025a] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1832348414 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 1, 攻略, guide, 1, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f98025a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bce1161] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@607863440 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 2(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 2, player1, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 玩家一号, null, 热爱游戏的普通玩家, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bce1161]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3350d307] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1022316424 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,name,code,sort_order,status,created_at,updated_at FROM t_post_category WHERE id=? AND status=1
+==> Parameters: 3(Long)
+<==    Columns: id, name, code, sort_order, status, created_at, updated_at
+<==        Row: 3, 求助, help, 3, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3350d307]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f5e1b9] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1906020739 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 5(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 5, rpg_lover, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, RPG爱好者, null, RPG永不毕业！, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f5e1b9]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33fbbe47] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@146307496 wrapping com.mysql.cj.jdbc.ConnectionImpl@7099eee1] will not be managed by Spring
+==>  Preparing: SELECT id,username,password,nickname,avatar,bio,email,status,created_at,updated_at FROM t_user WHERE id=? AND status=1
+==> Parameters: 1(Long)
+<==    Columns: id, username, password, nickname, avatar, bio, email, status, created_at, updated_at
+<==        Row: 1, admin, $2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi, 管理员, null, GameBox 官方管理员, null, 1, 2026-05-27 18:20:26, 2026-05-27 18:20:26
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33fbbe47]

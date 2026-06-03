@@ -1,0 +1,16 @@
+﻿[ERROR] COMPILATION ERROR : 
+[ERROR] /D:/22523/demo/gamebox-server/src/main/java/com/gamebox/config/MyBatisPlusConfig.java:[5,56] �Ҳ�������
+  ����:   �� PaginationInnerInterceptor
+  λ��: ����� com.baomidou.mybatisplus.extension.plugins.inner
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project gamebox-server: Compilation failure
+[ERROR] /D:/22523/demo/gamebox-server/src/main/java/com/gamebox/config/MyBatisPlusConfig.java:[5,56] �Ҳ�������
+[ERROR]   ����:   �� PaginationInnerInterceptor
+[ERROR]   λ��: ����� com.baomidou.mybatisplus.extension.plugins.inner
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
