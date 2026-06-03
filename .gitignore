@@ -1,0 +1,16 @@
+.idea/
+*.iml
+
+build.log
+server.log
+*.log
+
+target/
+out/
+*.class
+
+node_modules/
+dist/
+
+.DS_Store
+Thumbs.db
